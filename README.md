@@ -175,3 +175,6 @@ It controls:
 	•	JSX settings
 	•	Path aliases
 ```
+## File Structure and the usage of each folder
+
+### File Structure of the Server [File Structure](https://github.com/Mohammad016/Type-Script/edit/main/src/README-Src.md#file-structure)
