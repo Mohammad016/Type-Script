@@ -27,8 +27,8 @@ export const updateTodo = (req: Request,res: Response) => {
 };
 
 //create Todo
-export const createTodo = (req: Request, res: Response) => {
-    const {title} = req.body;
+export const createTodo = (_req: Request, res: Response) => {
+    const {title} = _req.body;
 
     if(!title || typeof(title) !== "string") {
         return res.status(400).json({message: "Title is required, 400 Bad request Invalid request data"});
