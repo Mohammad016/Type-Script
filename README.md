@@ -188,3 +188,17 @@ It controls:
 •	The router files redirect the requesr to the actual code handler "controller" where every route's logic is defined
 •	After execution the response is sent back to client
 ```
+
+## Request error from POSTMAN/Client
+```text
+1. Check your app.ts
+	•	first express must be used by app and only then router can be used by app, because the router's request/response that you are using typically belong to the express module and if you use the router before express it will throw an error
+2. Check your Postman/client request
+	•	Make sure you are doing POST or PUT when sending data to server not GET, and make sure the format is BODY -> RAW -> JSON because GET is used to fetch data and mostly dont have use of the request body (might only use request params atmost) and if we use • form-data • x-www-form-urlencoded • text then req.body becomes empty.
+3. Check your controller destructuring
+	•	if you use somthing like this `const { title } = req.body;` and req.body is undefined then it will crash
+		so place a console.log(req.body);
+	•	If you see {}, it means: middleware issue 		-> This means Express parsed the request successfully (It did not crash and did not skip the controller) but it found nothing to parse from the incoming request. It check only for JSON saying ("I tried finding JSON but couldn't") even though other formats maybe used
+	•	If you see nothing logged: route path is wrong	-> Obviously no path is defined in routes file (routes.ts) then it won't ever trigger the line
+4. Check your route properly and also for any nested routes
+```
