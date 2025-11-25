@@ -178,3 +178,13 @@ It controls:
 ## File Structure and the usage of each folder
 
 ### File Structure of the Server [File Structure](https://github.com/Mohammad016/Type-Script/edit/main/src/README-Src.md#file-structure)
+
+
+## How request is handled
+```text
+•	Request recieved by the server.ts which listens to the incoming requests using app
+•	Request then passes through the middleware in the app.ts where you have route definers, error handlers and authentications
+•	The request after passing through auths gets mapped to the defined routes through mapping of router's files
+•	The router files redirect the requesr to the actual code handler "controller" where every route's logic is defined
+•	After execution the response is sent back to client
+```
