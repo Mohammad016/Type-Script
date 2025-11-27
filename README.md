@@ -1,5 +1,7 @@
 # Type-Script
 Basics of TypeScript
+
+[Basics of basics)[]
 ## commonJs
 Imports
 ```javacript
