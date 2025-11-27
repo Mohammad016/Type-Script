@@ -1,7 +1,7 @@
 # Type-Script
 Basics of TypeScript
 
-[Basics of basics)[]
+[Basics of basics](https://github.com/Mohammad016/Type-Script/blob/main/BasicsOfBasics.md#basics)
 ## commonJs
 Imports
 ```javacript
