@@ -1,3 +1,5 @@
+# Basics
+
 1. JavaScript
 ```text
 The language itself.
