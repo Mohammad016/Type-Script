@@ -204,3 +204,64 @@ It controls:
 	•	If you see nothing logged: route path is wrong	-> Obviously no path is defined in routes file (routes.ts) then it won't ever trigger the line
 4. Check your route properly and also for any nested routes
 ```
+## Use Of VITE
+```text
+Vite is a frontend build tool + dev server specifically made for frameworks like:
+	•	React
+	•	Vue
+	•	Svelte
+	•	Vanilla JS + TS
+
+Nodemon restarts the Node server when files change.
+
+But the frontend is different:
+	•	When you change a React component, you don’t want the entire server to restart.
+	•	You want just the changed component to reload — instantly.
+Vite provides HMR (Hot Module Replacement)
+```
+### Bundling
+```text
+Your React code:
+	•	uses JSX
+	•	uses TypeScript
+	•	imports many files
+	•	imports CSS internally
+	•	imports images
+	•	uses ES modules
+	•	many modern module formats
+	•	imports like import React from "react"
+
+The browser cannot understand most of that.
+It needs:
+	•	pure JavaScript
+	•	no JSX
+	•	no TypeScript
+	•	no Node-style imports
+	•	one or few bundle files
+	•	optimized, compressed output
+Bundlers convert all this into browser-ready JavaScript.
+
+Vite does two jobs:
+------------------
+(A) Dev server (instant, unbundled)
+		Vite uses ES modules directly; no full bundling, so it’s fast.
+(B) Production bundler (via Rollup)
+		When you run vite build:
+			•	your React code becomes optimized JS/CSS
+			•	unused code is removed
+			•	large JS chunks are split
+			•	the output becomes ultra-fast for deployment
+
+Webpack is powerful but slow:									Vite changes the entire dev experience:
+	•	Bundles everything on startup								•	NO bundling at startup
+	•	Rebuilds large chunks on every change						•	Instant server start
+	•	Slow HMR													•	Instant HMR
+																	•	Uses browser’s native ES modules
+																	•	Uses super-fast ESBuild internally
+Relationship:
+	•	Node gives the environment						•	runs backend code  •	uses CommonJS/ESM  •	NO JSX, TS, bundling, CSS handling, or HMR
+	•	Vite gives the dev server + bundler 			•	compiles your frontend  •	serves it blazing fast during development  •	bundles & optimizes it for production
+
+
+
+
