@@ -261,7 +261,68 @@ Webpack is powerful but slow:									Vite changes the entire dev experience:
 Relationship:
 	•	Node gives the environment						•	runs backend code  •	uses CommonJS/ESM  •	NO JSX, TS, bundling, CSS handling, or HMR
 	•	Vite gives the dev server + bundler 			•	compiles your frontend  •	serves it blazing fast during development  •	bundles & optimizes it for production
+```
+
+# Working with FrontEnd
+
+## Commands Used:
+```text
+cd ... 			-> Going back to project folder
+mkdir client	-> Creating a client folder to keep is seperated from Server (Has number of benefits)
+cd client		-> change the directory to client and install Vite and react in this
+
+npm create vite@latest		-> creates an entire project structure (done by vite)
+This command didn't work because I have node v-18 installed in my computer and the latest vite version is v-7 which is incompatible with node v-18
+which is no longer supported by Vite 7 (Node 18 reached end-of-life in April 2025).
+so You have 2 options
+•	Install latest node version (20 or 22) and rerun the "npm create vite@latest" which works with vite v-7
+•	Install a past version of vite like v-6 or v-5 which is compatible with node v-18 using command "npm create vite@6"
+
+Choose:
+	•	Project name: client
+	•	Framework: React
+	•	Variant: TypeScript
+
+Then install dependencies:
+		cd client	
+		npm install		-> Since you have selected REACT when creating a vite (a frontend tool) project using npm, now you need to simply install the dependencies of react along with them to work with it in your vite project
+
+```
+folder structure provided by vite (+React plugin):
+```text
+my-app/
+ ├─ node_modules/			- All downloaded packages live here. You never touch or edit it.
+ ├─ public/					- static files served as-is 				•	Files in here do not go through bundling - Anything inside public becomes available at the root URL: eg: http://localhost:5173/xyz.png (if vite running on port 5173 and public has xyz.png image)
+ ├─ src/					- The HEART of REACT app 					•	Everything your react app actually runs lives here.
+ │   ├─ assets/				- A place for images, logos, fonts or any static files you import inside components.
+ │   ├─ App.jsx				- first REACT component, 					•	You build your entire UI by connecting, splittting, and nesting more components from here
+ │   ├─ main.jsx			- true entry point of your application 		•	Initializes REACT, connects REACT to the HTML page, Renders <APP /> into DOME		"Start React. Show App on the screen"
+ │   └─ index.css			- Your global stylesheet					•	You can remove it if using Tailwind or another CSS setup
+ ├─ .gitignore
+ ├─ index.html				- This is the actual html rendered on browser. It contains only the essentials: React injects everything into the #root div by using the main.jsx (which is the script file that returns html that needs to be inserted in the index.html main html file) 
+ ├─ package.json			- Dependencies + scripts					•	Contains: app name, dependencies (react, react-dom), devDependencies (vite, plugin-react), scripts
+ ├─ vite.config.js			- BRAIN of vite 							•	Controls: plugins, path aliases, server config, build settings	You mostly touch this when adding features like: alias paths, environment variables, optimizations, SSR
+ └─ README.md
+```
+Choosing of files to be placed in public or assets:
+```text
+•	If React imports it → put it in assets.						Files go through Vite’s pipeline. Optimized, hashed, compressed, and imported into components.
+•	If the browser needs it directly → put it in public.		Files stay exactly as they are. No bundling, no optimization, no hashing.
 
 
+PUBLIC  (UNPROCESSED STORAGE ROOM)
+		- A static file is NOT imported inside JavaScript/React code.				examples:
+		- Behavior : 	•	Not processed by Vite											•	Large videos/images shown via URL instead of importing
+						•	Not optimized													•	Third-party scripts or libraries
+						•	Not renamed/hashes												•	files you simply want to "place on the server"
+						•	Accessible directly by URL										•	favicon.ico (A favicon.ico is a file containing a small icon that appears next to a website's name in a browser tab, a bookmark, or the address bar. It's used to help users identify a site and enforce brand consistency, and while the .ico format is common, other formats like PNG are also supported. )
 
 
+ASSETS ()
+		- A static file is imported or used inside code.							examples:
+		- Behavior: 	•	Bundled by Vite													•	Bundled by Vite
+						•	Optimized (compressed, resized if possible)						•	Optimized (compressed, resized if possible)
+						•	Hashed filenames (logo.8d2ba.png)								•	Hashed filenames (logo.8d2ba.png)
+						•	Included only if used → reduces bundle							•	Included only if used → reduces bundle
+						•	Can be imported in code, styles, components						•	Can be imported in code, styles, components
+```
