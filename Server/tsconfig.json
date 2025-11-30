@@ -1,0 +1,46 @@
+{
+  // Visit https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // File Layout
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Environment Settings
+    // See also https://aka.ms/tsconfig/module
+    "module": "CommonJS",
+    "target": "esnext",
+    "types": [],
+    // For nodejs:
+    // "lib": ["esnext"],
+    // "types": ["node"],
+    // and npm install -D @types/node
+
+    // Other Outputs
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Stricter Typechecking Options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+
+    // Style Options
+    // "noImplicitReturns": true,
+    // "noImplicitOverride": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    // "noFallthroughCasesInSwitch": true,
+    // "noPropertyAccessFromIndexSignature": true,
+
+    // Recommended Options
+    "strict": true,
+    "jsx": "react-jsx",
+    //"verbatimModuleSyntax": true, // This option is used to enforce the use of the module syntax. Makes TypeScript preserve your exact import/export statements in the emitted JS.
+    "isolatedModules": true,
+    "noUncheckedSideEffectImports": true, // This option is used to check for side effects in the imports.
+    "moduleDetection": "force",
+    "skipLibCheck": true,
+    "esModuleInterop": true, // This option is used to enable the compatibility with the CommonJS and ES modules. This helps us to use the import statement instead of require. and cannot be used with the "module" option or verbatimModuleSyntax option.
+    // It generates interop code so that Import x from "x" works even if module doesn't have a default export.
+  }
+}
