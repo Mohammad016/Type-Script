@@ -2,6 +2,23 @@
 Basics of TypeScript
 
 [Basics of basics](https://github.com/Mohammad016/Type-Script/blob/main/BasicsOfBasics.md#basics)
+2 ways of creating a server:
+```text
+1. Pure Node.js (without using Express):							2. Creating a server with Express
+		Node gives you a built-in module called http.						Express uses Node’s http module behind the scenes.
+		Using this, you manually:											But gives you:
+			•	Create a server														•	Simpler routing
+			•	Listen on a port													•	Automatically parsed body (via middleware)
+			•	Inspect URLs														•	Cleaner structure
+			•	Inspect methods (GET, POST, etc.)									•	Middlewares
+			•	Parse request body yourself											•	Easy error handling
+			•	Handle routing logic manually										•	Easy response helpers (res.json(), res.send() etc.)
+			•	Set headers manually												•	Router separation into files
+			•	Handle errors manually												•	Built-in utilities
+
+Node.js http = the engine
+Express = the full car built on top of that engine
+```
 ## commonJs
 Imports
 ```javacript
