@@ -1,7 +1,7 @@
 # Type-Script
 Basics of TypeScript
 
-[Basics of basics](https://github.com/Mohammad016/Type-Script/blob/main/BasicsOfBasics.md#basics)
+[Basics of basics](https://github.com/Mohammad016/Type-Script/blob/main/Server/BasicsOfBasics.md#basics)
 2 ways of creating a server:
 ```text
 1. Pure Node.js (without using Express):							2. Creating a server with Express
